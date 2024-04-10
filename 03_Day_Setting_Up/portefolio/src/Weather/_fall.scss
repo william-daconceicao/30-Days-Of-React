@@ -1,0 +1,80 @@
+.weather-background.fall {
+  background: #f1c4ab;
+
+  .trunk, .foliage, hole {
+    position: absolute;
+  }
+  
+  .trunk {
+    height: 80%;
+    bottom: 0;
+    left: 10%;
+    width: 150px;
+    background: #cc895e;
+    clip-path: polygon(0% 0%, 30% 20%, 30% 65%, 15% 90%, 0% 100%, 100% 100%, 90% 75%, 65% 20%, 75% 5%, 50% 10%);
+  }
+
+  .hole {
+    background: rgb(34, 34, 34);
+    height: 60px;
+    border-radius: 50%;
+    width: 30px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    border: #9f5532 2px solid;
+  }
+  
+  .foliage {
+    background: #fd8644;
+    border-radius: 50%;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    height: 200px;
+    width: 200px;
+    box-shadow:
+    #fd8644 -40px -100px 0, 
+    #fd8644 -75px -35px, 
+    #fd8644 200px 30px, 
+    #fd8644 75px -150px 0 -5px, 
+    #fd8644 100px 10px 0 -5px, 
+    #fd8644 270px -35px 0 -5px, 
+    #fd8644 200px -145px 0 -5px;
+  }
+
+
+  .leaf {
+    position: absolute;
+    top: -5vh;
+    width: 20px;
+    height: 20px;
+    border-radius: 0 16px;
+    background-color: #fd8644;
+    transform: rotate(0deg);
+  }
+
+  @keyframes snowfall {
+    0% {
+      transform: translate3d(var(--left-ini), 22vh, 0);
+    }
+    100% {
+      transform: translate3d(var(--left-end), 100vh, 0);
+    }
+  }
+
+  @for $i from 1 through 30 {
+    .leaf:nth-child(#{$i}) {
+      --size: #{random(5) * 0.2}vw;
+      --left-ini: #{random(20) - 5}vw;
+      --left-end: #{random(20) - 10}vw;
+      left: #{random(20)}vw;
+      animation: snowfall #{5 + random(10)}s linear infinite;
+      animation-delay: -#{random(10)}s;
+    }
+  }
+
+  .leaf:nth-child(6n) {
+    filter: blur(1px);
+  }
+}

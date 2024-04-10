@@ -1,0 +1,123 @@
+.weather-background.winter {
+  background: linear-gradient(#123, #111);
+
+  .snowflake {
+    --size: 1vw;
+    width: var(--size);
+    height: var(--size);
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: -5vh;
+  }
+
+  @keyframes snowfall {
+    0% {
+      transform: translate3d(var(--left-ini), 0, 0);
+    }
+    100% {
+      transform: translate3d(var(--left-end), 100vh, 0);
+    }
+  }
+
+  @for $i from 1 through 50 {
+    .snowflake:nth-child(#{$i}) {
+      --size: #{random(5) * 0.2}vw;
+      --left-ini: #{random(20) - 10}vw;
+      --left-end: #{random(20) - 10}vw;
+      left: #{random(100)}vw;
+      animation: snowfall #{5 + random(10)}s linear infinite;
+      animation-delay: -#{random(10)}s;
+    }
+  }
+
+  .snowflake:nth-child(6n) {
+    filter: blur(1px);
+  }
+
+  .snowmanContainer{
+    width: 300px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    bottom: 5%;
+    right: 10%;
+  }
+
+  .snowCap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 110px;
+    border-bottom: 8px solid grey;
+  }
+
+  .blackRec{
+    width: 70px;
+    height: 10px;
+    background-color: grey;
+  }
+
+  .greyRec{
+    width: 70px;
+    height: 15px;
+    background-color: lightgray;
+  }
+
+  .snowTop{
+    width: 120px;
+    height: 80px;
+    border-radius: 50px;
+    background-color: white;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .eye{
+    margin-top: 30px;
+    width: 15px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+  }
+
+  .glasses {
+    width: 30px;
+    height: 5px;
+    background: black;
+    position: absolute;
+    top: 28%;
+  }
+
+  .snowBottom{
+    width: 170px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: white;
+    border: black solid 1px;
+  }
+
+  .snowScarf{
+    position: absolute;
+    bottom: 135px;
+    width: 120px;
+    height: 20px;
+    border-radius: 100px;
+    border: 5px solid lightsalmon;
+    background-color: tomato;
+  }
+
+  .snow {
+    position: absolute;
+    bottom: -10%;
+    right: -40%;
+    width: 90%;
+    height: 20%;
+    border-radius: 50%;
+    background-color: white;
+    transform: rotate(-1deg);
+  }
+}
