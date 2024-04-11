@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import ColorList from './ColorList/colorList';
 import Weather from './Weather/weather';
 
+
 function App() {
   const randomColor = () => Math.floor(Math.random()*16777215).toString(16);
   const numcols = 5;
@@ -37,13 +38,15 @@ function App() {
         <div class="seasons-selector">
           {seasons.map(el => <button class="season-button" onClick={() => setSeason(el)}>{el}</button>)}
         </div>
+
         {/* <button onClick={() => setColors(generateColors())}>
           Generate
-        </button> */}
-        {/* <div className="app-header-container">
+        </button> 
+        <div className="app-header-container">
           {season}
           <ColorList colors={colors}  />
         </div> */}
+
       </header>      
     </div>
   );
